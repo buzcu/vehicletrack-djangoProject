@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if last48hours %}
+    <ul>
+    <p>Vehicle Navigation Records From Past 48 hours</p>
+    {% for record in last48hours %}
+        <li><a href="/vehicletrack/{{ record.id }}/">longitude:{{record.longitude}} latitude:{{ record.latitude }} vehicle_plate: {{ record.vehicle }} datetime:{{ record.datetime }} </a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No records are available.</p>
+{% endif %}
+
+</body>
+</html>
